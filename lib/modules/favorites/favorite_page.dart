@@ -20,7 +20,7 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<DisheProvider>(context);
-    print('FAVORTIES PAGES: ' + provider.dishesFavorites.length.toString());
+    
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) async {

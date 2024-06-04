@@ -87,7 +87,8 @@ class DisheProvider extends ChangeNotifier {
 
       _dishes.clear();
       _dishes.addAll(list);
-     // _dishesFavorites.addAll(newDishesFavorites);
+     _dishesFavorites.clear();
+     _dishesFavorites.addAll(getFavorites());
 
       await LocalStorageDatabase().setKey('lastDishe', _dishesFavorites);
       isLoading = false;
@@ -96,7 +97,7 @@ class DisheProvider extends ChangeNotifier {
   }
 
   Future<void> setFavoriteDishe(Dishes value) async {
-
+    
     isLoading = true;
     notifyListeners();
 
@@ -113,21 +114,9 @@ class DisheProvider extends ChangeNotifier {
 
     _dishes.clear();
     _dishes.addAll(list);
-
-    // if (_dishesFavorites.isNotEmpty) {
-    //   List<Dishes> newDishesFavorites = [..._dishesFavorites];
-    //   _dishesFavorites.clear();
-    //   newDishesFavorites.addAll(getFavorites());
-    //   _dishesFavorites.addAll(newDishesFavorites);
-    //   await LocalStorageDatabase().setKey('lastDishe', _dishesFavorites);
-    //   isLoading = false;
-    //   notifyListeners();
-    //   return;
-    // }
-
+    //aqui mudar
     _dishesFavorites.clear();
-    _dishesFavorites.addAll(_dishes.where((element) => element.isFavorite).toList());
-    print('fAVORITE HOME: ' +_dishesFavorites.length.toString());
+    _dishesFavorites.addAll(getFavorites());
 
     await LocalStorageDatabase().setKey('lastDishe', _dishesFavorites);
     isLoading = false;
