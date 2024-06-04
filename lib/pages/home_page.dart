@@ -4,7 +4,7 @@ import 'package:forky_app_provider/components/dots_loadings.dart';
 import 'package:forky_app_provider/components/food_selected_list.dart';
 import 'package:forky_app_provider/components/list_empity.dart';
 import 'package:forky_app_provider/database/localstorage_database.dart';
-import 'package:forky_app_provider/modules/favorites/favorite_page.dart';
+import 'package:forky_app_provider/pages/favorite_page.dart';
 import 'package:forky_app_provider/providers/dishe_proivider.dart';
 import 'package:provider/provider.dart';
 

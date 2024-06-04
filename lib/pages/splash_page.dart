@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:forky_app_provider/modules/home/home_page.dart';
+import 'package:forky_app_provider/pages/home_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
