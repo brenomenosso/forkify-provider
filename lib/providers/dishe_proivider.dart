@@ -87,7 +87,6 @@ class DisheProvider extends ChangeNotifier {
 
       _dishes.clear();
       _dishes.addAll(list);
-     _dishesFavorites.clear();
      _dishesFavorites.addAll(getFavorites());
 
       await LocalStorageDatabase().setKey('lastDishe', _dishesFavorites);
@@ -114,8 +113,6 @@ class DisheProvider extends ChangeNotifier {
 
     _dishes.clear();
     _dishes.addAll(list);
-    //aqui mudar
-    _dishesFavorites.clear();
     _dishesFavorites.addAll(getFavorites());
 
     await LocalStorageDatabase().setKey('lastDishe', _dishesFavorites);
@@ -126,6 +123,7 @@ class DisheProvider extends ChangeNotifier {
   List<Dishes> getFavorites() {
 
     List<Dishes> newDishesFavorites = [..._dishesFavorites];
+    _dishesFavorites.clear();
 
     if (_dishes.isEmpty) {
       return _dishesFavorites;
@@ -134,7 +132,7 @@ class DisheProvider extends ChangeNotifier {
     var list = _dishes.where((element) => element.isFavorite).toList();
     for (var element in list) {
       final index =
-          _dishesFavorites.indexWhere((e) => e.recipeId == element.recipeId);
+          newDishesFavorites.indexWhere((e) => e.recipeId == element.recipeId);
       if (index == -1) {
         newDishesFavorites.add(element);
       }
